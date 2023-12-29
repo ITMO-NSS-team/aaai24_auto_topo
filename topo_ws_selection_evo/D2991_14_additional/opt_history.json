@@ -1,0 +1,526 @@
+{
+    "_default_save_dir": "C:\\Users\\user\\AppData\\Local\\Temp\\FEDOT",
+    "_generations": [
+        {
+            "data": [
+                "b4ed24f2-645b-4cf5-be31-e46884cdf31a",
+                "d9888938-323d-4c57-b46b-a478948023f4",
+                "cd830904-d516-480d-9e53-9824f72cf126",
+                "a37eca7e-898d-46c9-901e-49c62f34b18e"
+            ],
+            "generation_num": 0,
+            "label": "initial_assumptions",
+            "metadata": {},
+            "_class_path": "golem.core.optimisers.opt_history_objects.generation/Generation"
+        },
+        {
+            "data": [
+                "241f4c71-b145-4032-95bf-2e7d775b8836",
+                "b4ed24f2-645b-4cf5-be31-e46884cdf31a",
+                "d9888938-323d-4c57-b46b-a478948023f4",
+                "cd830904-d516-480d-9e53-9824f72cf126",
+                "a37eca7e-898d-46c9-901e-49c62f34b18e"
+            ],
+            "generation_num": 1,
+            "label": "extended_initial_assumptions",
+            "metadata": {},
+            "_class_path": "golem.core.optimisers.opt_history_objects.generation/Generation"
+        },
+        {
+            "data": [
+                "cd830904-d516-480d-9e53-9824f72cf126"
+            ],
+            "generation_num": 2,
+            "label": "final_choices",
+            "metadata": {},
+            "_class_path": "golem.core.optimisers.opt_history_objects.generation/Generation"
+        }
+    ],
+    "_objective": {
+        "is_multi_objective": false,
+        "metric_names": [
+            "rmse",
+            "node_number"
+        ],
+        "_class_path": "golem.core.optimisers.objective.objective/ObjectiveInfo"
+    },
+    "_tuning_result": {
+        "operator": {
+            "_nodes": [
+                {
+                    "_nodes_from": [
+                        "c398e5f6-a29c-4687-baf1-e262725e6009",
+                        "bb669693-d3e5-47cb-9c9e-9a0021a205d2"
+                    ],
+                    "content": {
+                        "name": "ridge",
+                        "params": {},
+                        "metadata": {
+                            "metric": null,
+                            "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                        }
+                    },
+                    "uid": "2fe4a6f0-b089-4859-8c44-7dee24dc8693",
+                    "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                },
+                {
+                    "_nodes_from": [
+                        "8ac39147-283c-43d1-bd0e-cb7b0194bbc9"
+                    ],
+                    "content": {
+                        "name": "topological_features",
+                        "params": {},
+                        "metadata": {
+                            "metric": null,
+                            "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                        }
+                    },
+                    "uid": "c398e5f6-a29c-4687-baf1-e262725e6009",
+                    "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                },
+                {
+                    "_nodes_from": [],
+                    "content": {
+                        "name": "lagged",
+                        "params": {
+                            "stride": 1,
+                            "window_size": 25
+                        },
+                        "metadata": {
+                            "metric": null,
+                            "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                        }
+                    },
+                    "uid": "8ac39147-283c-43d1-bd0e-cb7b0194bbc9",
+                    "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                },
+                {
+                    "_nodes_from": [],
+                    "content": {
+                        "name": "lagged",
+                        "params": {
+                            "stride": 1,
+                            "window_size": 25
+                        },
+                        "metadata": {
+                            "metric": null,
+                            "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                        }
+                    },
+                    "uid": "bb669693-d3e5-47cb-9c9e-9a0021a205d2",
+                    "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                }
+            ],
+            "_postprocess_nodes": {
+                "_class_path": "golem.core.dag.linked_graph/LinkedGraph._empty_postprocess"
+            },
+            "_class_path": "golem.core.dag.linked_graph/LinkedGraph"
+        },
+        "_class_path": "golem.core.dag.graph_delegate/GraphDelegate"
+    },
+    "archive_history": [
+        [
+            "cd830904-d516-480d-9e53-9824f72cf126"
+        ],
+        [
+            "cd830904-d516-480d-9e53-9824f72cf126"
+        ],
+        [
+            "cd830904-d516-480d-9e53-9824f72cf126"
+        ]
+    ],
+    "individuals_pool": [
+        {
+            "fitness": {
+                "_values": [
+                    54.30426382806072,
+                    0.20000000000000004
+                ],
+                "_class_path": "golem.core.optimisers.fitness.fitness/SingleObjFitness"
+            },
+            "graph": {
+                "operator": {
+                    "_nodes": [
+                        {
+                            "_nodes_from": [
+                                "5bd4d928-0170-4c97-b43d-375160538dc5"
+                            ],
+                            "content": {
+                                "name": "ar",
+                                "params": {
+                                    "lag_1": 7,
+                                    "lag_2": 12
+                                },
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "8afe3ad1-1dbe-46a0-92e0-b9fb610efa82",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [],
+                            "content": {
+                                "name": "smoothing",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "5bd4d928-0170-4c97-b43d-375160538dc5",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        }
+                    ],
+                    "_postprocess_nodes": {
+                        "_class_path": "golem.core.dag.linked_graph/LinkedGraph._empty_postprocess"
+                    },
+                    "_class_path": "golem.core.dag.linked_graph/LinkedGraph"
+                },
+                "_class_path": "golem.core.dag.graph_delegate/GraphDelegate"
+            },
+            "metadata": {
+                "use_input_preprocessing": true,
+                "computation_time_in_seconds": 0.5200102999988303,
+                "evaluation_time_iso": "2023-11-30T00:18:24.863855"
+            },
+            "native_generation": 0,
+            "parent_operator": null,
+            "uid": "b4ed24f2-645b-4cf5-be31-e46884cdf31a",
+            "_class_path": "golem.core.optimisers.opt_history_objects.individual/Individual"
+        },
+        {
+            "fitness": {
+                "_values": [
+                    220.43742679197408,
+                    0.4000000000000001
+                ],
+                "_class_path": "golem.core.optimisers.fitness.fitness/SingleObjFitness"
+            },
+            "graph": {
+                "operator": {
+                    "_nodes": [
+                        {
+                            "_nodes_from": [
+                                "058f7618-8adb-4192-92ed-96da28ae57fc",
+                                "f428b3ad-73de-451a-b292-7b0fe8f99f3e"
+                            ],
+                            "content": {
+                                "name": "ridge",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "48894d6b-4051-46cf-97e0-588f91e6ce4c",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [],
+                            "content": {
+                                "name": "polyfit",
+                                "params": {
+                                    "degree": 2
+                                },
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "058f7618-8adb-4192-92ed-96da28ae57fc",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [
+                                "566bbca7-c00a-484b-95b8-da365a50ff16"
+                            ],
+                            "content": {
+                                "name": "ridge",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "f428b3ad-73de-451a-b292-7b0fe8f99f3e",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [],
+                            "content": {
+                                "name": "lagged",
+                                "params": {
+                                    "stride": 1,
+                                    "window_size": 25
+                                },
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "566bbca7-c00a-484b-95b8-da365a50ff16",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        }
+                    ],
+                    "_postprocess_nodes": {
+                        "_class_path": "golem.core.dag.linked_graph/LinkedGraph._empty_postprocess"
+                    },
+                    "_class_path": "golem.core.dag.linked_graph/LinkedGraph"
+                },
+                "_class_path": "golem.core.dag.graph_delegate/GraphDelegate"
+            },
+            "metadata": {
+                "use_input_preprocessing": true,
+                "computation_time_in_seconds": 0.5200102999988303,
+                "evaluation_time_iso": "2023-11-30T00:18:24.863855"
+            },
+            "native_generation": 0,
+            "parent_operator": null,
+            "uid": "d9888938-323d-4c57-b46b-a478948023f4",
+            "_class_path": "golem.core.optimisers.opt_history_objects.individual/Individual"
+        },
+        {
+            "fitness": {
+                "_values": [
+                    44.67828685753073,
+                    0.4000000000000001
+                ],
+                "_class_path": "golem.core.optimisers.fitness.fitness/SingleObjFitness"
+            },
+            "graph": {
+                "operator": {
+                    "_nodes": [
+                        {
+                            "_nodes_from": [
+                                "c2b197fd-3b00-421c-ac85-f53dcd7a3a21",
+                                "57f32410-7bc5-45f3-8692-9d768e17259f"
+                            ],
+                            "content": {
+                                "name": "ridge",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "17690c23-de28-4ed7-979c-fae9c5bf6a68",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [
+                                "a378e67e-258c-4282-920c-03bb568b07ee"
+                            ],
+                            "content": {
+                                "name": "topological_features",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "c2b197fd-3b00-421c-ac85-f53dcd7a3a21",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [],
+                            "content": {
+                                "name": "lagged",
+                                "params": {
+                                    "stride": 1,
+                                    "window_size": 25
+                                },
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "a378e67e-258c-4282-920c-03bb568b07ee",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [],
+                            "content": {
+                                "name": "lagged",
+                                "params": {
+                                    "stride": 1,
+                                    "window_size": 25
+                                },
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "57f32410-7bc5-45f3-8692-9d768e17259f",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        }
+                    ],
+                    "_postprocess_nodes": {
+                        "_class_path": "golem.core.dag.linked_graph/LinkedGraph._empty_postprocess"
+                    },
+                    "_class_path": "golem.core.dag.linked_graph/LinkedGraph"
+                },
+                "_class_path": "golem.core.dag.graph_delegate/GraphDelegate"
+            },
+            "metadata": {
+                "use_input_preprocessing": true,
+                "computation_time_in_seconds": 0.5200102999988303,
+                "evaluation_time_iso": "2023-11-30T00:18:24.863855"
+            },
+            "native_generation": 0,
+            "parent_operator": null,
+            "uid": "cd830904-d516-480d-9e53-9824f72cf126",
+            "_class_path": "golem.core.optimisers.opt_history_objects.individual/Individual"
+        },
+        {
+            "fitness": {
+                "_values": [
+                    51.75984705006554,
+                    0.20000000000000004
+                ],
+                "_class_path": "golem.core.optimisers.fitness.fitness/SingleObjFitness"
+            },
+            "graph": {
+                "operator": {
+                    "_nodes": [
+                        {
+                            "_nodes_from": [
+                                "55681a16-3edf-40ae-8a49-f857280d72e0"
+                            ],
+                            "content": {
+                                "name": "ridge",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "0a278496-4b63-4815-8e26-efa2875cd692",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [],
+                            "content": {
+                                "name": "lagged",
+                                "params": {
+                                    "stride": 1,
+                                    "window_size": 98
+                                },
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "55681a16-3edf-40ae-8a49-f857280d72e0",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        }
+                    ],
+                    "_postprocess_nodes": {
+                        "_class_path": "golem.core.dag.linked_graph/LinkedGraph._empty_postprocess"
+                    },
+                    "_class_path": "golem.core.dag.linked_graph/LinkedGraph"
+                },
+                "_class_path": "golem.core.dag.graph_delegate/GraphDelegate"
+            },
+            "metadata": {
+                "use_input_preprocessing": true,
+                "computation_time_in_seconds": 0.5200102999988303,
+                "evaluation_time_iso": "2023-11-30T00:18:24.863855"
+            },
+            "native_generation": 0,
+            "parent_operator": null,
+            "uid": "a37eca7e-898d-46c9-901e-49c62f34b18e",
+            "_class_path": "golem.core.optimisers.opt_history_objects.individual/Individual"
+        },
+        {
+            "fitness": {
+                "_values": [
+                    276.39583970431187,
+                    0.3
+                ],
+                "_class_path": "golem.core.optimisers.fitness.fitness/SingleObjFitness"
+            },
+            "graph": {
+                "operator": {
+                    "_nodes": [
+                        {
+                            "_nodes_from": [
+                                "0bedb460-aed4-445f-9e5d-0db086986404"
+                            ],
+                            "content": {
+                                "name": "ridge",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "8d591842-3eab-4e38-9513-61aaa5d7aa5c",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [
+                                "ec03abbf-6129-4cc3-9687-aa6b22ae02fc"
+                            ],
+                            "content": {
+                                "name": "topological_features",
+                                "params": {},
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "0bedb460-aed4-445f-9e5d-0db086986404",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        },
+                        {
+                            "_nodes_from": [],
+                            "content": {
+                                "name": "lagged",
+                                "params": {
+                                    "stride": 1,
+                                    "window_size": 25
+                                },
+                                "metadata": {
+                                    "metric": null,
+                                    "_class_path": "fedot.core.pipelines.node/NodeMetadata"
+                                }
+                            },
+                            "uid": "ec03abbf-6129-4cc3-9687-aa6b22ae02fc",
+                            "_class_path": "golem.core.dag.linked_graph_node/LinkedGraphNode"
+                        }
+                    ],
+                    "_postprocess_nodes": {
+                        "_class_path": "golem.core.dag.linked_graph/LinkedGraph._empty_postprocess"
+                    },
+                    "_class_path": "golem.core.dag.linked_graph/LinkedGraph"
+                },
+                "_class_path": "golem.core.dag.graph_delegate/GraphDelegate"
+            },
+            "metadata": {
+                "use_input_preprocessing": true,
+                "computation_time_in_seconds": 41.23456400000214,
+                "evaluation_time_iso": "2023-11-30T00:19:07.162146"
+            },
+            "native_generation": 1,
+            "parent_operator": {
+                "operators": [
+                    {
+                        "value": "single_drop",
+                        "_class_path": "golem.core.optimisers.genetic.operators.base_mutations/MutationTypesEnum"
+                    }
+                ],
+                "parent_individuals": [
+                    "cd830904-d516-480d-9e53-9824f72cf126"
+                ],
+                "type_": "mutation",
+                "uid": "5024a49d-01f6-43b2-a3dd-45f20f6c251e",
+                "_class_path": "golem.core.optimisers.opt_history_objects.parent_operator/ParentOperator"
+            },
+            "uid": "241f4c71-b145-4032-95bf-2e7d775b8836",
+            "_class_path": "golem.core.optimisers.opt_history_objects.individual/Individual"
+        }
+    ],
+    "_class_path": "golem.core.optimisers.opt_history_objects.opt_history/OptHistory"
+}

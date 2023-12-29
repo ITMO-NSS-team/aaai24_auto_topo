@@ -1,0 +1,98 @@
+{
+    "total_pipeline_operations": [
+        "glm",
+        "sparse_lagged",
+        "ridge"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "glm",
+            "operation_name": "GLMImplementation",
+            "custom_params": {
+                "family": "gaussian",
+                "link": "log"
+            },
+            "params": {
+                "family": "gaussian",
+                "link": "log"
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 3,
+            "operation_type": "sparse_lagged",
+            "operation_name": "SparseLaggedTransformationImplementation",
+            "custom_params": {
+                "n_components": 0.2208695994543063,
+                "sparse_transform": true,
+                "use_svd": true,
+                "stride": 1,
+                "window_size": 42
+            },
+            "params": {
+                "n_components": 0.2208695994543063,
+                "sparse_transform": true,
+                "use_svd": true,
+                "stride": 1,
+                "window_size": 42
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 2,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {
+                "alpha": 8.173999707662611
+            },
+            "params": {
+                "alpha": 8.173999707662611
+            },
+            "nodes_from": [
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {
+                "alpha": 7.796103609701444
+            },
+            "params": {
+                "alpha": 7.796103609701444
+            },
+            "nodes_from": [
+                1,
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_sparse_lagged_{'n_components': 0.2208695994543063, 'sparse_transform': True, 'use_svd': True, 'stride': 1, 'window_size': 42};)/n_ridge_{'alpha': 8.173999707662611};;/n_glm_{'family': 'gaussian', 'link': 'log'};)/n_ridge_{'alpha': 7.796103609701444}"
+}

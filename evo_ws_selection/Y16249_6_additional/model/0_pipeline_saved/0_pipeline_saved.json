@@ -1,0 +1,56 @@
+{
+    "total_pipeline_operations": [
+        "lagged",
+        "dtreg"
+    ],
+    "depth": 2,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 15,
+                "stride": 7
+            },
+            "params": {
+                "window_size": 15,
+                "stride": 7
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "dtreg",
+            "operation_name": "DecisionTreeRegressor",
+            "custom_params": {
+                "max_depth": 6,
+                "min_samples_split": 7,
+                "min_samples_leaf": 9
+            },
+            "params": {
+                "max_depth": 6,
+                "min_samples_split": 7,
+                "min_samples_leaf": 9
+            },
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "(/n_lagged_{'window_size': 15, 'stride': 7};)/n_dtreg_{'max_depth': 6, 'min_samples_split': 7, 'min_samples_leaf': 9}"
+}

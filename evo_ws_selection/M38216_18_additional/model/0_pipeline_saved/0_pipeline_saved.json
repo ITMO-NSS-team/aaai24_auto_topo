@@ -1,0 +1,83 @@
+{
+    "total_pipeline_operations": [
+        "lagged",
+        "svr"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 7,
+                "stride": 28
+            },
+            "params": {
+                "window_size": 7,
+                "stride": 28
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "svr",
+            "operation_name": "MultiOutputRegressor",
+            "custom_params": {
+                "C": 2.9450126968618378,
+                "epsilon": 0.47931704488451266,
+                "loss": "squared_epsilon_insensitive",
+                "tol": 0.0009962426815238404
+            },
+            "params": {
+                "C": 2.9450126968618378,
+                "epsilon": 0.47931704488451266,
+                "loss": "squared_epsilon_insensitive",
+                "tol": 0.0009962426815238404
+            },
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "svr",
+            "operation_name": "MultiOutputRegressor",
+            "custom_params": {
+                "C": 12.621669770265573,
+                "epsilon": 0.8809265746098718,
+                "loss": "epsilon_insensitive",
+                "tol": 0.0005099077417168538
+            },
+            "params": {
+                "C": 12.621669770265573,
+                "epsilon": 0.8809265746098718,
+                "loss": "epsilon_insensitive",
+                "tol": 0.0005099077417168538
+            },
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_lagged_{'window_size': 7, 'stride': 28};)/n_svr_{'C': 2.9450126968618378, 'epsilon': 0.47931704488451266, 'loss': 'squared_epsilon_insensitive', 'tol': 0.0009962426815238404};)/n_svr_{'C': 12.621669770265573, 'epsilon': 0.8809265746098718, 'loss': 'epsilon_insensitive', 'tol': 0.0005099077417168538}"
+}

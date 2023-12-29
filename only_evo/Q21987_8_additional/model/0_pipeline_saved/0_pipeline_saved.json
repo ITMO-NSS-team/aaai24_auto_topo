@@ -1,0 +1,88 @@
+{
+    "total_pipeline_operations": [
+        "ets",
+        "polyfit",
+        "ridge"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "ets",
+            "operation_name": "ExpSmoothingImplementation",
+            "custom_params": {
+                "error": "add",
+                "trend": null,
+                "seasonal": null,
+                "damped_trend": false,
+                "seasonal_periods": 7
+            },
+            "params": {
+                "error": "add",
+                "trend": null,
+                "seasonal": null,
+                "damped_trend": false,
+                "seasonal_periods": 7
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 3,
+            "operation_type": "polyfit",
+            "operation_name": "PolyfitImplementation",
+            "custom_params": {
+                "degree": 2
+            },
+            "params": {
+                "degree": 2
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 2,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                1,
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_polyfit_{'degree': 2};)/n_ridge;;/n_ets_{'error': 'add', 'trend': None, 'seasonal': None, 'damped_trend': False, 'seasonal_periods': 7};)/n_ridge"
+}

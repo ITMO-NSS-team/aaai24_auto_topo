@@ -1,0 +1,86 @@
+{
+    "total_pipeline_operations": [
+        "lagged",
+        "dtreg",
+        "scaling",
+        "lasso"
+    ],
+    "depth": 4,
+    "nodes": [
+        {
+            "operation_id": 3,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 3.977212222810831
+            },
+            "params": {
+                "window_size": 3.977212222810831
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 2,
+            "operation_type": "dtreg",
+            "operation_name": "DecisionTreeRegressor",
+            "custom_params": {
+                "max_depth": 3,
+                "min_samples_split": 18,
+                "min_samples_leaf": 15
+            },
+            "params": {
+                "max_depth": 3,
+                "min_samples_split": 18,
+                "min_samples_leaf": 15
+            },
+            "nodes_from": [
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "scaling",
+            "operation_name": "ScalingImplementation",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "lasso",
+            "operation_name": "Lasso",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "(((/n_lagged_{'window_size': 3.977212222810831};)/n_dtreg_{'max_depth': 3, 'min_samples_split': 18, 'min_samples_leaf': 15};)/n_scaling;)/n_lasso"
+}

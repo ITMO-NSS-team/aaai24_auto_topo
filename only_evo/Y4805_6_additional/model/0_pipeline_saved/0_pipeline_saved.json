@@ -1,0 +1,63 @@
+{
+    "total_pipeline_operations": [
+        "ts_naive_average",
+        "lasso",
+        "ridge"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "ts_naive_average",
+            "operation_name": "NaiveAverageForecastImplementation",
+            "custom_params": {
+                "part_for_averaging": 1.0
+            },
+            "params": {
+                "part_for_averaging": 1.0
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 2,
+            "operation_type": "lasso",
+            "operation_name": "Lasso",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                1,
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_ts_naive_average_{'part_for_averaging': 1.0};)/n_lasso;;/n_ts_naive_average_{'part_for_averaging': 1.0};)/n_ridge"
+}

@@ -1,0 +1,105 @@
+{
+    "total_pipeline_operations": [
+        "glm",
+        "lagged",
+        "ridge"
+    ],
+    "depth": 4,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "glm",
+            "operation_name": "GLMImplementation",
+            "custom_params": {
+                "family": "gaussian",
+                "link": "identity"
+            },
+            "params": {
+                "family": "gaussian",
+                "link": "identity"
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 4,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 16.02142784099328
+            },
+            "params": {
+                "window_size": 16.02142784099328
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_4.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 3,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {
+                "alpha": 4.55485073411293
+            },
+            "params": {
+                "alpha": 4.55485073411293
+            },
+            "nodes_from": [
+                4
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 2,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {
+                "alpha": 8.210644653024355
+            },
+            "params": {
+                "alpha": 8.210644653024355
+            },
+            "nodes_from": [
+                1,
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "(((/n_lagged_{'window_size': 16.02142784099328};)/n_ridge_{'alpha': 4.55485073411293};)/n_ridge;;/n_glm_{'family': 'gaussian', 'link': 'identity'};)/n_ridge_{'alpha': 8.210644653024355}"
+}

@@ -1,0 +1,78 @@
+{
+    "total_pipeline_operations": [
+        "smoothing",
+        "lagged",
+        "svr"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "smoothing",
+            "operation_name": "TsSmoothingImplementation",
+            "custom_params": {
+                "window_size": 11
+            },
+            "params": {
+                "window_size": 11
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 7,
+                "stride": 22
+            },
+            "params": {
+                "window_size": 7,
+                "stride": 22
+            },
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "svr",
+            "operation_name": "MultiOutputRegressor",
+            "custom_params": {
+                "C": 12.277685961571024,
+                "epsilon": 0.4988147338608941,
+                "loss": "epsilon_insensitive",
+                "tol": 0.016958535514386173
+            },
+            "params": {
+                "C": 12.277685961571024,
+                "epsilon": 0.4988147338608941,
+                "loss": "epsilon_insensitive",
+                "tol": 0.016958535514386173
+            },
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_smoothing_{'window_size': 11};)/n_lagged_{'window_size': 7, 'stride': 22};)/n_svr_{'C': 12.277685961571024, 'epsilon': 0.4988147338608941, 'loss': 'epsilon_insensitive', 'tol': 0.016958535514386173}"
+}

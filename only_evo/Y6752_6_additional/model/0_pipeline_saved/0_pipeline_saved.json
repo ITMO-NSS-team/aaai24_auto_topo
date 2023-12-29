@@ -1,0 +1,109 @@
+{
+    "total_pipeline_operations": [
+        "polyfit",
+        "glm",
+        "ridge",
+        "pca",
+        "linear"
+    ],
+    "depth": 4,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "polyfit",
+            "operation_name": "PolyfitImplementation",
+            "custom_params": {
+                "degree": 2
+            },
+            "params": {
+                "degree": 2
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 4,
+            "operation_type": "glm",
+            "operation_name": "GLMImplementation",
+            "custom_params": {
+                "family": "gaussian",
+                "link": "identity"
+            },
+            "params": {
+                "family": "gaussian",
+                "link": "identity"
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_4.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 3,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {
+                "alpha": 9.473800135035075
+            },
+            "params": {
+                "alpha": 9.473800135035075
+            },
+            "nodes_from": [
+                4
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "pca",
+            "operation_name": "PCAImplementation",
+            "custom_params": {
+                "svd_solver": "full",
+                "n_components": 0.7
+            },
+            "params": {
+                "svd_solver": "full",
+                "n_components": 0.7
+            },
+            "nodes_from": [
+                2,
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "linear",
+            "operation_name": "LinearRegression",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "(((/n_glm_{'family': 'gaussian', 'link': 'identity'};)/n_ridge_{'alpha': 9.473800135035075};;/n_polyfit_{'degree': 2};)/n_pca_{'svd_solver': 'full', 'n_components': 0.7};)/n_linear"
+}

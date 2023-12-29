@@ -1,0 +1,90 @@
+{
+    "total_pipeline_operations": [
+        "gaussian_filter",
+        "lagged",
+        "lgbmreg"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "gaussian_filter",
+            "operation_name": "GaussianFilterImplementation",
+            "custom_params": {
+                "sigma": 2.3831537391127817
+            },
+            "params": {
+                "sigma": 2.3831537391127817
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 4,
+                "stride": 1
+            },
+            "params": {
+                "window_size": 4,
+                "stride": 1
+            },
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "lgbmreg",
+            "operation_name": "MultiOutputRegressor",
+            "custom_params": {
+                "num_leaves": 32,
+                "colsample_bytree": 0.8,
+                "subsample": 0.8,
+                "subsample_freq": 10,
+                "learning_rate": 0.03,
+                "n_estimators": 100,
+                "n_jobs": 1,
+                "verbose": -1,
+                "reg_alpha": 0.0022494399205406743,
+                "reg_lambda": 1.7031249109912894e-05
+            },
+            "params": {
+                "num_leaves": 32,
+                "colsample_bytree": 0.8,
+                "subsample": 0.8,
+                "subsample_freq": 10,
+                "learning_rate": 0.03,
+                "n_estimators": 100,
+                "n_jobs": 1,
+                "verbose": -1,
+                "reg_alpha": 0.0022494399205406743,
+                "reg_lambda": 1.7031249109912894e-05
+            },
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_gaussian_filter_{'sigma': 2.3831537391127817};)/n_lagged_{'window_size': 4, 'stride': 1};)/n_lgbmreg_{'num_leaves': 32, 'colsample_bytree': 0.8, 'subsample': 0.8, 'subsample_freq': 10, 'learning_rate': 0.03, 'n_estimators': 100, 'n_jobs': 1, 'verbose': -1, 'reg_alpha': 0.0022494399205406743, 'reg_lambda': 1.7031249109912894e-05}"
+}
