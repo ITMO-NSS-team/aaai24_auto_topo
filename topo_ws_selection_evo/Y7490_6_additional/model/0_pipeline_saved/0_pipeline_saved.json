@@ -1,0 +1,95 @@
+{
+    "total_pipeline_operations": [
+        "lagged",
+        "topological_features",
+        "sparse_lagged",
+        "ridge"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "stride": 1,
+                "window_size": 0.9306306194546181
+            },
+            "params": {
+                "stride": 1,
+                "window_size": 0.9306306194546181
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "topological_features",
+            "operation_name": "TopologicalFeaturesImplementation",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 3,
+            "operation_type": "sparse_lagged",
+            "operation_name": "SparseLaggedTransformationImplementation",
+            "custom_params": {
+                "n_components": 0.5,
+                "sparse_transform": true,
+                "use_svd": false,
+                "stride": 1,
+                "window_size": 4
+            },
+            "params": {
+                "n_components": 0.5,
+                "sparse_transform": true,
+                "use_svd": false,
+                "stride": 1,
+                "window_size": 4
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {
+                "alpha": 9.379048908907118
+            },
+            "params": {
+                "alpha": 9.379048908907118
+            },
+            "nodes_from": [
+                1,
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_lagged_{'stride': 1, 'window_size': 0.9306306194546181};)/n_topological_features;;/n_sparse_lagged_{'n_components': 0.5, 'sparse_transform': True, 'use_svd': False, 'stride': 1, 'window_size': 4};)/n_ridge_{'alpha': 9.379048908907118}"
+}

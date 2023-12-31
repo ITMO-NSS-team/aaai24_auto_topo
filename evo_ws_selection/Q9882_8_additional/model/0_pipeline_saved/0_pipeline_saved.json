@@ -1,0 +1,78 @@
+{
+    "total_pipeline_operations": [
+        "gaussian_filter",
+        "lagged",
+        "svr"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "gaussian_filter",
+            "operation_name": "GaussianFilterImplementation",
+            "custom_params": {
+                "sigma": 1.265665356258703
+            },
+            "params": {
+                "sigma": 1.265665356258703
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 5,
+                "stride": 11
+            },
+            "params": {
+                "window_size": 5,
+                "stride": 11
+            },
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "svr",
+            "operation_name": "MultiOutputRegressor",
+            "custom_params": {
+                "C": 6.484589336366202,
+                "epsilon": 0.3405576290502699,
+                "loss": "epsilon_insensitive",
+                "tol": 0.06868741093326346
+            },
+            "params": {
+                "C": 6.484589336366202,
+                "epsilon": 0.3405576290502699,
+                "loss": "epsilon_insensitive",
+                "tol": 0.06868741093326346
+            },
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_gaussian_filter_{'sigma': 1.265665356258703};)/n_lagged_{'window_size': 5, 'stride': 11};)/n_svr_{'C': 6.484589336366202, 'epsilon': 0.3405576290502699, 'loss': 'epsilon_insensitive', 'tol': 0.06868741093326346}"
+}

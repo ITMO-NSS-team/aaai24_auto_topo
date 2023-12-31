@@ -1,0 +1,99 @@
+{
+    "total_pipeline_operations": [
+        "ets",
+        "smoothing",
+        "ar",
+        "ridge"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "ets",
+            "operation_name": "ExpSmoothingImplementation",
+            "custom_params": {
+                "error": "mul",
+                "trend": "add",
+                "seasonal": "add",
+                "damped_trend": true,
+                "seasonal_periods": 10.533379122246613
+            },
+            "params": {
+                "error": "mul",
+                "trend": "add",
+                "seasonal": "add",
+                "damped_trend": true,
+                "seasonal_periods": 10.533379122246613
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 3,
+            "operation_type": "smoothing",
+            "operation_name": "TsSmoothingImplementation",
+            "custom_params": {
+                "window_size": 17
+            },
+            "params": {
+                "window_size": 17
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 2,
+            "operation_type": "ar",
+            "operation_name": "AutoRegImplementation",
+            "custom_params": {
+                "lag_1": 39,
+                "lag_2": 38
+            },
+            "params": {
+                "lag_1": 39,
+                "lag_2": 38
+            },
+            "nodes_from": [
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {
+                "alpha": 2.921190957771514
+            },
+            "params": {
+                "alpha": 2.921190957771514
+            },
+            "nodes_from": [
+                1,
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_smoothing_{'window_size': 17};)/n_ar_{'lag_1': 39, 'lag_2': 38};;/n_ets_{'error': 'mul', 'trend': 'add', 'seasonal': 'add', 'damped_trend': True, 'seasonal_periods': 10.533379122246613};)/n_ridge_{'alpha': 2.921190957771514}"
+}

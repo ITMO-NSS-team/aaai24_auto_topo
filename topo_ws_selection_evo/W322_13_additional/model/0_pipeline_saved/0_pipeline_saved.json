@@ -1,0 +1,58 @@
+{
+    "total_pipeline_operations": [
+        "smoothing",
+        "ets"
+    ],
+    "depth": 2,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "smoothing",
+            "operation_name": "TsSmoothingImplementation",
+            "custom_params": {
+                "window_size": 3
+            },
+            "params": {
+                "window_size": 3
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ets",
+            "operation_name": "ExpSmoothingImplementation",
+            "custom_params": {
+                "error": "mul",
+                "trend": "add",
+                "seasonal": "mul",
+                "damped_trend": true,
+                "seasonal_periods": 19.409340061149152
+            },
+            "params": {
+                "error": "mul",
+                "trend": "add",
+                "seasonal": "mul",
+                "damped_trend": true,
+                "seasonal_periods": 19.409340061149152
+            },
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "(/n_smoothing_{'window_size': 3};)/n_ets_{'error': 'mul', 'trend': 'add', 'seasonal': 'mul', 'damped_trend': True, 'seasonal_periods': 19.409340061149152}"
+}

@@ -1,0 +1,58 @@
+{
+    "total_pipeline_operations": [
+        "lagged",
+        "svr"
+    ],
+    "depth": 2,
+    "nodes": [
+        {
+            "operation_id": 1,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "stride": 1,
+                "window_size": 8
+            },
+            "params": {
+                "stride": 1,
+                "window_size": 8
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "svr",
+            "operation_name": "MultiOutputRegressor",
+            "custom_params": {
+                "C": 13.757202872905381,
+                "epsilon": 0.495652660402071,
+                "loss": "epsilon_insensitive",
+                "tol": 0.0027690190238231086
+            },
+            "params": {
+                "C": 13.757202872905381,
+                "epsilon": 0.495652660402071,
+                "loss": "epsilon_insensitive",
+                "tol": 0.0027690190238231086
+            },
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "(/n_lagged_{'stride': 1, 'window_size': 8};)/n_svr_{'C': 13.757202872905381, 'epsilon': 0.495652660402071, 'loss': 'epsilon_insensitive', 'tol': 0.0027690190238231086}"
+}

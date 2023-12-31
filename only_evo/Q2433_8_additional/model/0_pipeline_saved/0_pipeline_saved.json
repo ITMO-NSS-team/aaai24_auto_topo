@@ -1,0 +1,84 @@
+{
+    "total_pipeline_operations": [
+        "lagged",
+        "cgru",
+        "adareg"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "window_size": 10
+            },
+            "params": {
+                "window_size": 10
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "cgru",
+            "operation_name": "CGRUImplementation",
+            "custom_params": {
+                "hidden_size": 200,
+                "learning_rate": 0.001,
+                "cnn1_kernel_size": 5,
+                "cnn1_output_size": 32,
+                "cnn2_kernel_size": 5,
+                "cnn2_output_size": 64,
+                "batch_size": 64,
+                "num_epochs": 50,
+                "optimizer": "adamw",
+                "loss": "mse"
+            },
+            "params": {
+                "hidden_size": 200,
+                "learning_rate": 0.001,
+                "cnn1_kernel_size": 5,
+                "cnn1_output_size": 32,
+                "cnn2_kernel_size": 5,
+                "cnn2_output_size": 64,
+                "batch_size": 64,
+                "num_epochs": 50,
+                "optimizer": "adamw",
+                "loss": "mse"
+            },
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "adareg",
+            "operation_name": "MultiOutputRegressor",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                1
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_lagged_{'window_size': 10};)/n_cgru_{'hidden_size': 200, 'learning_rate': 0.001, 'cnn1_kernel_size': 5, 'cnn1_output_size': 32, 'cnn2_kernel_size': 5, 'cnn2_output_size': 64, 'batch_size': 64, 'num_epochs': 50, 'optimizer': 'adamw', 'loss': 'mse'};)/n_adareg"
+}

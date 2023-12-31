@@ -1,0 +1,101 @@
+{
+    "total_pipeline_operations": [
+        "sparse_lagged",
+        "ransac_lin_reg",
+        "lagged",
+        "ridge"
+    ],
+    "depth": 3,
+    "nodes": [
+        {
+            "operation_id": 2,
+            "operation_type": "sparse_lagged",
+            "operation_name": "SparseLaggedTransformationImplementation",
+            "custom_params": {
+                "n_components": 0.5,
+                "sparse_transform": true,
+                "use_svd": false,
+                "stride": 1,
+                "window_size": 4
+            },
+            "params": {
+                "n_components": 0.5,
+                "sparse_transform": true,
+                "use_svd": false,
+                "stride": 1,
+                "window_size": 4
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_2.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 1,
+            "operation_type": "ransac_lin_reg",
+            "operation_name": "LinearRegRANSACImplementation",
+            "custom_params": {
+                "min_samples": 0.4,
+                "residual_threshold": 10240,
+                "max_trials": 100,
+                "max_skips": 1000
+            },
+            "params": {
+                "min_samples": 0.4,
+                "residual_threshold": 10240,
+                "max_trials": 100,
+                "max_skips": 1000
+            },
+            "nodes_from": [
+                2
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_1.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 3,
+            "operation_type": "lagged",
+            "operation_name": "LaggedTransformationImplementation",
+            "custom_params": {
+                "stride": 1,
+                "window_size": 2
+            },
+            "params": {
+                "stride": 1,
+                "window_size": 2
+            },
+            "nodes_from": [],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_3.pkl"
+            ],
+            "rating": null
+        },
+        {
+            "operation_id": 0,
+            "operation_type": "ridge",
+            "operation_name": "Ridge",
+            "custom_params": {},
+            "params": {},
+            "nodes_from": [
+                1,
+                3
+            ],
+            "fitted_operation_path": [
+                "fitted_operations",
+                "operation_0.pkl"
+            ],
+            "rating": null
+        }
+    ],
+    "preprocessing": [
+        "preprocessing",
+        "data_preprocessor.pkl"
+    ],
+    "descriptive_id": "((/n_sparse_lagged_{'n_components': 0.5, 'sparse_transform': True, 'use_svd': False, 'stride': 1, 'window_size': 4};)/n_ransac_lin_reg_{'min_samples': 0.4, 'residual_threshold': 10240, 'max_trials': 100, 'max_skips': 1000};;/n_lagged_{'stride': 1, 'window_size': 2};)/n_ridge"
+}
